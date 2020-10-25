@@ -1,7 +1,8 @@
 
 %% read sensor data
-filename = uigetfile('*.*');
-fid = fopen(filename);
+[file,path] = uigetfile('*.*');
+fprintf("sensor data file:%s\n", fullfile(path,file));
+fid = fopen(fullfile(path,file));
 
 Data = fscanf(fid, '%f %f %f', [3 inf]);
 Data = Data';
